@@ -1,5 +1,4 @@
 require('dotenv').config();
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var fs = require("fs");
 
 const { query } = require('../db');
