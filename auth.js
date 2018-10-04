@@ -114,7 +114,7 @@ function catchErrors(fn) {
   return (req, res, next) => fn(req, res, next).catch(next);
 }
 
-app.post('/register', requireAuth, catchErrors(registerRoute));
+app.post('/register', catchErrors(registerRoute));
 app.post('/login', catchErrors(loginRoute));
 
 module.exports = app;
