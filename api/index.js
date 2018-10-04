@@ -24,25 +24,25 @@ function catchErrors(fn) {
 
 function indexRoute(req, res) {
   return res.json({
-    authentication: {
-      register: '/register',
-      login: '/login',
-    },
+    // authentication: {
+    //   register: '/register',
+    //   login: '/login',
+    // },
     recipes: {
       recipes: '/recipes',
       recipe: '/recipe/{id}',
     },
     // categories: '/categories',
-    users: {
-      users: '/users',
-      user: '/users/{id}',
+    // users: {
+    //   users: '/users',
+    //   user: '/users/{id}',
       // read: '/users/{id}/read',
-    },
-    me: {
-      me: '/users/me',
-      profile: '/users/me/profile',
+    // },
+    // me: {
+    //   me: '/users/me',
+    //   profile: '/users/me/profile',
       // read: '/users/me/read',
-    },
+    // },
   });
 }
 
