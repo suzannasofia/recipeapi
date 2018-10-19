@@ -26,8 +26,24 @@ async function importRecipe(data) {
 
 }
 
+async function importUser(data) {
+  const q = `
+    INSERT INTO
+      users (username, password, name)
+    VALUES
+      ($1, $2, $3)
+    RETURNING *`;
+
+  const values = ['admin', '$2a$11$pgj3.zySyFOvIQEpD7W6Aund1Tw.BFarXxgLJxLbrzIv/4Nteisii', 'Admin' ];
+
+  return query(q, values);
+
+}
+
 async function importData() {
   console.info('Starting import');
+
+  // await importUser();
 
   var content = fs.readFileSync("data/recipes.txt", "utf8");
 
@@ -45,4 +61,3 @@ async function importData() {
 importData().catch((err) => {
   console.error('Error importing', err);
 });
-// importData();
