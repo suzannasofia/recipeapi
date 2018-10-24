@@ -85,7 +85,7 @@ async function recipePatchRoute(req, res) {
     return res.status(404).json({ error: 'Recipe not found' });
   }
 
-  const recipe = await query('SELECT * FROM recipe WHERE id = $1', [id]);
+  const recipe = await query('SELECT * FROM recipes WHERE id = $1', [id]);
 
   if (recipe.rows.length === 0) {
     return res.status(404).json({ error: 'Recipe not found' });
