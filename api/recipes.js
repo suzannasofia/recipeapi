@@ -3,7 +3,7 @@ const { paged, query, conditionalUpdate } = require('../db');
 const { validateRecipe } = require('../validation');
 
 async function recipesRoute(req, res) {
-  const { offset = 0, limit = 20, search = '' } = req.query;
+  const { offset = 0, limit = 20, search = '', type } = req.query;
 
   let q = `
     SELECT *
@@ -13,15 +13,28 @@ async function recipesRoute(req, res) {
     const values = [];
 
     if (typeof search === 'string' && search !== '') {
-      q = `
-        SELECT *
-        FROM recipes
-        WHERE
-          to_tsvector('english', title) @@ plainto_tsquery('english', $1)
-          OR
-          to_tsvector('english', description) @@ plainto_tsquery('english', $1)
-          ORDER BY title ASC
-          `;
+      console.log('type er ', type);
+        if (type) {
+          q = `
+          SELECT *
+          FROM recipes
+          WHERE
+            to_tsvector('english', ingredients) @@ plainto_tsquery('english', $1)
+            ORDER BY title ASC
+            `;
+            console.log('hello');
+        }
+        else {
+          q = `
+            SELECT *
+            FROM recipes
+            WHERE
+              to_tsvector('english', title) @@ plainto_tsquery('english', $1)
+              OR
+              to_tsvector('english', description) @@ plainto_tsquery('english', $1)
+              ORDER BY title ASC
+              `;
+        }
           values.push(search);
     }
 
