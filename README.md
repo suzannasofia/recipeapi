@@ -23,3 +23,5 @@ Runs on https://simplerecipe-api.herokuapp.com/
   - `CLOUDINARY_API_KEY`
   - `CLOUDINARY_API_SECRET`
 * Run with `npm start`
+
+Log in with username `admin` and password `1234`
