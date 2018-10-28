@@ -1,6 +1,6 @@
 # Recipe API
 
-Recipe API for https://simple-recipe.herokuapp.com/
+Recipe API for https://simple-recipe.herokuapp.com/ (https://github.com/suzannasofia/simplerecipe)
 
 Runs on https://simplerecipe-api.herokuapp.com/
 
