@@ -13,7 +13,6 @@ async function recipesRoute(req, res) {
     const values = [];
 
     if (typeof search === 'string' && search !== '') {
-      console.log('type er ', type);
         if (type) {
           q = `
           SELECT *
@@ -22,7 +21,6 @@ async function recipesRoute(req, res) {
             to_tsvector('english', ingredients) @@ plainto_tsquery('english', $1)
             ORDER BY title ASC
             `;
-            console.log('hello');
         }
         else {
           q = `
